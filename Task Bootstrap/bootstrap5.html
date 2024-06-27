@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .form-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group .form-control {
+        padding-left: 40px;
+      }
+
+      .form-group .input-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+      }
+
+      .form-group .form-control.is-invalid {
+        border-color: #e3342f;
+      }
+
+      .form-group .form-control.is-invalid + .input-icon {
+        color: #e3342f;
+      }
+
+      .form-group .invalid-feedback {
+        display: none;
+        color: #e3342f;
+      }
+
+      .btn-warning {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #fff;
+      }
+
+      .btn-warning:hover {
+        background-color: #e0a800;
+        border-color: #d39e00;
+      }
+
+      .container {
+        max-width: 500px;
+      }
+
+      .alert-warning {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="alert alert-warning" role="alert">
+        Please fill out all required fields before submitting.
+      </div>
+      <form class="needs-validation" novalidate>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="firstName"
+            placeholder="First Name"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-user"></i></span>
+          <div class="invalid-feedback">Please supply your first name</div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="lastName"
+            placeholder="Last Name"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-user"></i></span>
+          <div class="invalid-feedback">Please supply your last name</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input
+            type="email"
+            class="form-control is-invalid"
+            id="email"
+            placeholder="E-Mail Address"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-envelope"></i></span>
+          <div class="invalid-feedback">Please supply your email address</div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone #</label>
+          <input
+            type="tel"
+            class="form-control is-invalid"
+            id="phone"
+            placeholder="(845)555-1212"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-phone"></i></span>
+          <div class="invalid-feedback">Please supply your phone number</div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="address"
+            placeholder="Address"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-home"></i></span>
+          <div class="invalid-feedback">Please supply your street address</div>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="city"
+            placeholder="City"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-building"></i></span>
+          <div class="invalid-feedback">Please supply your city</div>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <select class="form-control is-invalid" id="state" required>
+            <option value="">Please select your state</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="maharashtra">Maharashtra</option>
+            <option value="tamilnadu">Tamil Nadu</option>
+          </select>
+          <div class="invalid-feedback">Please select your state</div>
+        </div>
+
+        <div class="form-group">
+          <label>Do you have hosting?</label><br />
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input is-invalid"
+              type="radio"
+              name="hosting"
+              id="hostingYes"
+              value="yes"
+              required
+            />
+            <label class="form-check-label" for="hostingYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input is-invalid"
+              type="radio"
+              name="hosting"
+              id="hostingNo"
+              value="no"
+              required
+            />
+            <label class="form-check-label" for="hostingNo">No</label>
+          </div>
+          <div class="invalid-feedback">Please select an option</div>
+        </div>
+
+        <div class="form-group">
+          <label for="projectDescription">Project Description</label>
+          <textarea
+            class="form-control"
+            id="projectDescription"
+            rows="3"
+            placeholder="Project Description"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Send</button>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

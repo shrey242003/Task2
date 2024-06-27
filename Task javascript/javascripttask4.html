@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date and Time Display</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        display: block;
+        width: 200px;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #dateOutput,
+      #timeOutput {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Date and Time Display</h2>
+
+    <button onclick="getDate()">Get Date</button>
+    <div id="dateOutput"></div>
+
+    <button onclick="getTime()">Get Time</button>
+    <div id="timeOutput"></div>
+
+    <script>
+      function getDate() {
+        const now = new Date();
+        const options = {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        };
+        const formattedDate = now
+          .toLocaleDateString("en-GB", options)
+          .replace(",", "");
+        document.getElementById(
+          "dateOutput"
+        ).innerHTML = `<p>${formattedDate}</p>`;
+      }
+
+      function getTime() {
+        const now = new Date();
+        const formattedTime = now.toString();
+        document.getElementById(
+          "timeOutput"
+        ).innerHTML = `<p>${formattedTime}</p>`;
+      }
+    </script>
+  </body>
+</html>

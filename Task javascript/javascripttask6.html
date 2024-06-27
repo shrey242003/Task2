@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .login-container {
+        width: 350px;
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .login-container h1 {
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+      }
+      .login-container .form-group {
+        text-align: left;
+        position: relative;
+      }
+      .login-container .form-control {
+        padding-left: 40px;
+      }
+      .login-container .input-icon {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+      }
+      .login-container .btn-primary {
+        background-color: #0095f6;
+        border-color: #0095f6;
+        font-weight: bold;
+      }
+      .login-container .btn-primary:hover {
+        background-color: #007bb5;
+        border-color: #007bb5;
+      }
+      .login-container .forgot-password,
+      .login-container .remember-me {
+        display: inline-block;
+        font-size: 14px;
+      }
+      .login-container .forgot-password a {
+        color: #0095f6;
+      }
+      .login-container .signup {
+        margin-top: 20px;
+      }
+      .login-container .signup a {
+        color: #0095f6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Instagram</h1>
+      <form id="loginForm">
+        <div class="form-group mb-3">
+          <label for="username" class="sr-only">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-user"></i></span>
+        </div>
+        <div class="form-group mb-3">
+          <label for="password" class="sr-only">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <span class="input-icon"><i class="fa fa-lock"></i></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block w-100">
+          Log in
+        </button>
+        <div class="mt-2 d-flex justify-content-between">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+          <div class="forgot-password">
+            <a href="https://www.instagram.com/">Forgot Password?</a>
+          </div>
+        </div>
+        <div class="signup mt-3">
+          <p>
+            Don't have an account?
+            <a href="https://www.instagram.com/">Sign up here.</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (username && password) {
+            alert(`Logged in as ${username}`);
+          } else {
+            alert("Please enter both username and password");
+          }
+        });
+    </script>
+  </body>
+</html>

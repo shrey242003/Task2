@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #ffcccc, #ffffcc);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: white;
+        padding: 20px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 600px;
+      }
+      h1 {
+        text-align: center;
+        color: blue;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+      .form-group label {
+        width: 150px;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        flex: 1;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .form-group span {
+        width: 150px;
+        color: red;
+        font-weight: bold;
+        text-align: right;
+        margin-left: 10px;
+        display: inline-block;
+      }
+      .form-check-inline {
+        margin-right: 10px;
+      }
+      .form-check-label {
+        margin-left: 5px;
+      }
+      .btn {
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .btn:hover {
+        background-color: darkred;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+      }
+      .footer a {
+        color: blue;
+        text-decoration: none;
+      }
+      .footer a:hover {
+        text-decoration: underline;
+      }
+      .form-check {
+        display: flex;
+        align-items: center;
+      }
+      .form-check input {
+        margin-right: 10px;
+      }
+      .form-check label {
+        margin-bottom: 0;
+      }
+      .languages {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration form</h1>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-control" />
+          <span id="firstNameError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-control" />
+          <span id="lastNameError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" class="form-control" />
+          <span id="emailError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" />
+          <span id="passwordError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Re-enter Password</label>
+          <input type="password" id="confirmPassword" class="form-control" />
+          <span id="confirmPasswordError">POOR OR MISMATCH</span>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <div>
+            <div class="form-check-inline">
+              <input type="radio" id="male" name="gender" />
+              <label for="male">Male</label>
+            </div>
+            <div class="form-check-inline">
+              <input type="radio" id="female" name="gender" />
+              <label for="female">Female</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" class="form-control" />
+          <span id="ageError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="text" id="phoneNumber" class="form-control" />
+          <span id="phoneNumberError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" rows="3" class="form-control"></textarea>
+          <span id="addressError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" id="state" class="form-control" />
+          <span id="stateError">POOR</span>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" class="form-control">
+            <option value="">Choose your country</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+          </select>
+          <span id="countryError"></span>
+        </div>
+        <div class="form-group">
+          <label>Languages known</label>
+          <div class="languages">
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="english"
+                name="languages"
+                value="English"
+              />
+              <label for="english">English</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="kannada"
+                name="languages"
+                value="Kannada"
+              />
+              <label for="kannada">Kannada</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="hindi"
+                name="languages"
+                value="Hindi"
+              />
+              <label for="hindi">Hindi</label>
+            </div>
+            <div class="form-check-inline">
+              <input
+                type="checkbox"
+                id="telugu"
+                name="languages"
+                value="Telugu"
+              />
+              <label for="telugu">Telugu</label>
+            </div>
+          </div>
+          <span id="languagesError"></span>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="declaration" />
+          <label for="declaration"
+            >Hereby I declare all the given details are true</label
+          >
+        </div>
+        <button type="submit" class="btn">REGISTER</button>
+        <div class="footer">
+          <p>Log in to <a href="#">Eduman website</a></p>
+          <p>Don't have an account? <a href="#">Sign up here</a></p>
+        </div>
+      </form>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputs = document.querySelectorAll("input, textarea, select");
+        inputs.forEach((input) => {
+          input.addEventListener("input", function () {
+            const errorSpan = this.nextElementSibling;
+            if (errorSpan && errorSpan.tagName.toLowerCase() === "span") {
+              if (this.value.trim() !== "") {
+                errorSpan.style.display = "none";
+              } else {
+                errorSpan.style.display = "inline-block";
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

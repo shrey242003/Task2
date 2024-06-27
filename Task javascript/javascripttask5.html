@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      form {
+        width: 400px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      .error {
+        color: red;
+        display: inline-block;
+        margin-top: 5px;
+      }
+      .error-border {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Form Validation</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          oninput="validateField(this)"
+        />
+        <span class="error" id="nameError">This field is required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          oninput="validateField(this)"
+        />
+        <span class="error" id="emailError"
+          >A valid email address is required</span
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="website">Website:</label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          oninput="validateField(this)"
+        />
+        <span class="error" id="websiteError">A valid url is required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          oninput="validateField(this)"
+        ></textarea>
+        <span class="error" id="messageError">This field is required</span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        let isValid = true;
+        const fields = ["name", "email", "website", "message"];
+        fields.forEach((field) => {
+          const input = document.getElementById(field);
+          const errorSpan = document.getElementById(field + "Error");
+          if (input.value.trim() === "") {
+            input.classList.add("error-border");
+            errorSpan.style.display = "inline";
+            isValid = false;
+          } else {
+            input.classList.remove("error-border");
+            errorSpan.style.display = "none";
+          }
+        });
+        return isValid;
+      }
+
+      function validateField(input) {
+        const errorSpan = document.getElementById(input.id + "Error");
+        if (input.value.trim() === "") {
+          input.classList.add("error-border");
+          errorSpan.style.display = "inline";
+        } else {
+          input.classList.remove("error-border");
+          errorSpan.style.display = "none";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const errorSpans = document.querySelectorAll(".error");
+        errorSpans.forEach((span) => {
+          span.style.display = "inline";
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #train {
+        position: relative;
+        cursor: pointer;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <img id="train" src="https://js.cx/clipart/train.gif" />
+      <p style="font-size: xx-large">
+        Clicking the following picture to handle animation
+      </p>
+
+      <div class="buttons">
+        <button onclick="startAnimation()">Start</button>
+        <button onclick="stopAnimation()">Stop</button>
+      </div>
+    </center>
+
+    <script>
+      let timer;
+      let start;
+      let isRunning = false;
+      const train = document.getElementById("train");
+      const animationDuration = 3000; // Duration of animation in milliseconds
+
+      train.onclick = function () {
+        if (isRunning) return;
+        startAnimation();
+      };
+
+      function startAnimation() {
+        start = Date.now();
+        isRunning = true;
+
+        timer = setInterval(function () {
+          let timePassed = Date.now() - start;
+
+          let newPosition = timePassed / 5;
+
+          if (timePassed <= animationDuration) {
+            train.style.left = newPosition + "px";
+          } else {
+            clearInterval(timer);
+            isRunning = false;
+          }
+        }, 20);
+      }
+
+      function stopAnimation() {
+        clearInterval(timer);
+        isRunning = false;
+      }
+    </script>
+  </body>
+</html>

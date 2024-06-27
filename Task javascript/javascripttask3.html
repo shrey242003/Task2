@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication and Division Calculator</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .container {
+        max-width: 500px;
+        margin-top: 50px;
+      }
+      .result {
+        margin-top: 20px;
+      }
+      .operation-btn {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Multiplication and Division Calculator</h2>
+      <form id="calculator-form">
+        <div class="form-group">
+          <label for="number1">1st Number:</label>
+          <input type="number" class="form-control" id="number1" required />
+        </div>
+        <div class="form-group">
+          <label for="number2">2nd Number:</label>
+          <input type="number" class="form-control" id="number2" required />
+        </div>
+        <div class="form-group">
+          <label>Select Operation:</label>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary operation-btn"
+              onclick="selectOperation('multiply')"
+            >
+              Multiply
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary operation-btn"
+              onclick="selectOperation('divide')"
+            >
+              Divide
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </form>
+      <div class="result">
+        <p id="calculation-result"></p>
+      </div>
+    </div>
+
+    <script>
+      let selectedOperation = null;
+
+      function selectOperation(operation) {
+        selectedOperation = operation;
+        const operationBtns = document.querySelectorAll(".operation-btn");
+        operationBtns.forEach((btn) => btn.classList.remove("btn-success"));
+        event.target.classList.add("btn-success");
+      }
+
+      document
+        .getElementById("calculator-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const number1 = parseFloat(document.getElementById("number1").value);
+          const number2 = parseFloat(document.getElementById("number2").value);
+
+          if (isNaN(number1) || isNaN(number2)) {
+            alert("Please enter valid numbers");
+            return;
+          }
+
+          if (!selectedOperation) {
+            alert("Please select an operation");
+            return;
+          }
+
+          let result;
+          if (selectedOperation === "multiply") {
+            result = number1 * number2;
+          } else if (selectedOperation === "divide") {
+            result =
+              number2 !== 0 ? number1 / number2 : "Infinity (Division by zero)";
+          }
+
+          document.getElementById(
+            "calculation-result"
+          ).innerText = `The Result is: ${result}`;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethnus Layout</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-custom {
+        background-color: #6c757d;
+      }
+      .navbar-custom .nav-link {
+        color: white;
+      }
+      .sidebar {
+        background-color: #6c757d;
+        color: white;
+        height: calc(100vh - 56px);
+        padding: 20px;
+      }
+      .content {
+        padding: 20px;
+        background-color: #f8f9fa;
+        height: calc(100vh - 56px);
+      }
+      .navbar-custom .nav-link.active {
+        background-color: #17a2b8;
+        color: white !important;
+      }
+      .title-container {
+        background-color: #00bcd4;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title-container">
+      <h1>Ethnus Layout</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="https://ethnus.com/"
+                onclick="activateLink(event)"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://ethnus.com/"
+                onclick="activateLink(event)"
+                >Menu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://ethnus.com/about/"
+                onclick="activateLink(event)"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://ethnus.com/contact/"
+                onclick="activateLink(event)"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://careers.ethnus.com/candidateportal?source=career"
+                onclick="activateLink(event)"
+                >Signup</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="https://careers.ethnus.com/candidateportal?source=career"
+                onclick="activateLink(event)"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9 content">
+          <h1>Write your content here</h1>
+        </div>
+        <div class="col-md-3 sidebar">
+          <p>This is the sidebar content.</p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXlD/ZL+PnFvy0DfC4TztT6vRz0O3BhRx1G1Ra8TgaF3vAxTQ7kk7A1hb8+X"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGfg1yzQ2UO/tuvfVZXp3ZR5fysrCiwkfj0KkSmKZTME6CCm/eGNEI1eDfz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function activateLink(event) {
+        var links = document.querySelectorAll(".nav-link");
+        links.forEach(function (link) {
+          link.classList.remove("active");
+        });
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
